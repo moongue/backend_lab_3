@@ -33,6 +33,7 @@
     "*.(js|ts)": "eslint"
   },
   "lint-prepush": {
+    "verbose": true,
     "tasks": {
       "*.(js|ts)": {
         "concurrent": [
