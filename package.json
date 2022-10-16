@@ -26,8 +26,22 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
-      "pre-push": "int-staged && npm run test && npm audit"
+      "pre-push": "lint-prepush"
     }
+  },
+  "lint-prepush": {
+    "tasks": {
+      "*.(js|ts)": {
+        "concurrent": [
+          "jest",
+          "eslint",
+          "npm audit"
+        ]
+      }
+    }
+  },
+  "lint-staged": {
+    "*.(js|ts)": "eslint"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -54,6 +68,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
     "jest": "^27.2.5",
+    "lint-prepush": "^2.2.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
@@ -63,9 +78,6 @@
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
-  },
-  "lint-staged": {
-    "*.js|ts": "eslint"
   },
   "jest": {
     "moduleFileExtensions": [
