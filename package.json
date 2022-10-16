@@ -29,6 +29,9 @@
       "pre-push": "lint-prepush"
     }
   },
+  "lint-staged": {
+    "*.(js|ts)": "eslint"
+  },
   "lint-prepush": {
     "tasks": {
       "*.(js|ts)": {
@@ -39,9 +42,6 @@
         ]
       }
     }
-  },
-  "lint-staged": {
-    "*.(js|ts)": "eslint"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
