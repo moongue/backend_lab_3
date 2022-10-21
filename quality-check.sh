@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APP_ROOT=~/lab_3/nestjs-rest-api
+APP_ROOT=./
 
 cd $APP_ROOT || exit;
 
