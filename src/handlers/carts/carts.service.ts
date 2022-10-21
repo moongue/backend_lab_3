@@ -1,8 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateCartDto } from './dto/create-cart.dto';
-import { UpdateCartDto } from './dto/update-cart.dto';
 import { UtilsService } from '../../services/utils/utils.service';
-import { ConfigModule } from '../../services/config/config.module';
 import { ConfigService } from '../../services/config/config.service';
 
 @Injectable()
@@ -18,10 +15,10 @@ export class CartsService {
   }
 
   average() {
-    return this.utilsService.average([1,2,3]);
+    return this.utilsService.average([1, 2, 3]);
   }
 
-  create(createCartDto: CreateCartDto) {
+  create() {
     return 'This action adds a new cart';
   }
 
@@ -33,7 +30,7 @@ export class CartsService {
     return `This action returns a #${id} cart`;
   }
 
-  update(id: number, updateCartDto: UpdateCartDto) {
+  update(id: number) {
     return `This action updates a #${id} cart`;
   }
 
