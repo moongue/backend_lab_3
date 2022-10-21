@@ -10,7 +10,6 @@ import {
 } from '@nestjs/common';
 import { CartsService } from './carts.service';
 import { CreateCartDtoValid } from './dto/create-cart.dto';
-import { UpdateCartDto } from './dto/update-cart.dto';
 import { TransformPipe } from './pipes/transform.pipe';
 import { ValidationPipe } from './pipes/validation.pipe';
 import { SkipAuth } from '../../guards/skip-auth.decorator';
@@ -41,8 +40,8 @@ export class CartsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
-    return this.cartsService.update(+id, updateCartDto);
+  update(@Param('id') id: string) {
+    return this.cartsService.update(+id);
   }
 
   @Get()
